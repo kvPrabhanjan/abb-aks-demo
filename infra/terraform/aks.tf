@@ -36,7 +36,7 @@ resource "azurerm_kubernetes_cluster" "aks_store" {
   default_node_pool {
     name       = "system"
     vm_size    = local.aks_node_pool_vm_size
-    node_count = 2
+    node_count = 1
     vnet_subnet_id = azurerm_subnet.aks_subnet.id
 
     upgrade_settings {
@@ -135,4 +135,5 @@ resource "azurerm_application_insights" "aks_store" {
   location            = azurerm_resource_group.aks-store.location
   resource_group_name = azurerm_resource_group.aks-store.name
   application_type    = "web"
+  workspace_id        = azurerm_log_analytics_workspace.aks_store.id
 }

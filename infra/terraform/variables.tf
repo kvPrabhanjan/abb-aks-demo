@@ -12,7 +12,7 @@ variable "location" {
 variable "aks_node_pool_vm_size" {
   description = "value of azure kubernetes service vmss sku"
   type        = string
-  default     = "standard_b1s"
+  default     = "standard_d2as_v6"
 }
 
 variable "kv_rbac_enabled" {
