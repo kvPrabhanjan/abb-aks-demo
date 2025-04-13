@@ -50,14 +50,14 @@ resource "azurerm_resource_group" "aks-store" {
   location = var.location
 }
 
-# terraform {
-#  backend "azurerm" {
-#    resource_group_name  = "rg-aks-store"
-#    storage_account_name = "aksstoretf"
-#    container_name       = "tfstate"
-#    key                  = "prod.terraform.tfstate"
-#  }
-#}
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "rg-aks-store"
+    storage_account_name = "aksstoretf"
+    container_name       = "tfstate"
+    key                  = "prod.terraform.tfstate"
+  }
+}
 
 resource "azurerm_storage_account" "tfstate" {
   name                     = var.storage_account_name
