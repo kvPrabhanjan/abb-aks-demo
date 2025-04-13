@@ -1,5 +1,3 @@
----
-
 ## Architecture Overview
 
 The Terraform scripts provision the following Azure resources:
@@ -9,8 +7,6 @@ The Terraform scripts provision the following Azure resources:
 - **Azure Key Vault**: Securely stores secrets and sensitive configuration data.
 - **Azure Monitor (Application Insights)**: Provides monitoring and diagnostics for the applications.
 - **Azure Storage Account**: Stores the Terraform state file, enabling collaboration and state management.
-
----
 
 ## Architecture Diagram
 

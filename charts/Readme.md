@@ -1,5 +1,3 @@
----
-
 ## Architecture Overview (Helm App)
 
 This Helm chart is for deploying a **sample web application** into **Azure Kubernetes Service (AKS)**. It consists of:
@@ -10,8 +8,6 @@ This Helm chart is for deploying a **sample web application** into **Azure Kuber
 - **Ingress** (`ingress.yaml`): (Optional) Configures HTTP ingress rules to expose the app outside the cluster.
 - **ConfigMap** (`configmap.yaml`): Injects non-sensitive configuration settings into the pods.
 - **Values File** (`values.yaml`): Contains default values for the chart (image, replica count, ports, etc.).
-
----
 
 ### Helm Values Control
 
@@ -116,14 +112,5 @@ You can access the app via:
 ```bash
 helm uninstall aks-store-demo --namespace aks-store
 ```
-
----
-
-## Optional Enhancements
-
-- Add Horizontal Pod Autoscaler
-- Enable TLS in ingress
-- Connect to Azure Monitor for metrics/logs
-- Pull image from Azure Container Registry (ACR)
 
 ---
