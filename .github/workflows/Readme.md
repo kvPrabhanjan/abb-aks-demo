@@ -123,11 +123,3 @@ It also attaches metadata labels for traceability.
 ghcr.io/owner-name/repo-name/virtual-worker:latest
 ghcr.io/owner-name/repo-name/virtual-worker:abc1234
 ```
-
----
-
-## Summary
-
-This workflow automates the packaging of the `virtual-worker` service as a Docker container and publishes it to GitHub Container Registry (GHCR), with proper tagging and metadata for traceability.
-
-Let me know if you'd like to extend this to trigger Helm deploys to AKS or integrate with other GitHub workflows!
