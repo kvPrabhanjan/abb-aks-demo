@@ -49,9 +49,9 @@ resource "azurerm_kubernetes_cluster" "aks_store" {
     azure_rbac_enabled = true
   }
 
-  api_server_access_profile {
-    authorized_ip_ranges = ["${local.my_ip}/32"]
-  }
+ api_server_access_profile {
+ #   authorized_ip_ranges = ["0.0.0.0/0"]
+ }
 
   network_profile {
     network_plugin      = "azure"

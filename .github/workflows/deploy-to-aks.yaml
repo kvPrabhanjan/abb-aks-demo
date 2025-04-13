@@ -59,6 +59,27 @@ jobs:
       run: |
         az aks get-credentials --resource-group rg-aks-store  --name aks-aksstore --overwrite-existing
 
+    - uses: azure/setup-kubectl@v3
+      name: Setup kubectl
+
+    - name: Setup kubelogin
+      uses: azure/use-kubelogin@v1
+      with:
+        kubelogin-version: 'v0.0.26'
+
+    - name: Set AKS context
+      id: set-context
+      uses: azure/aks-set-context@v3
+      with:
+        resource-group: 'rg-aks-store'
+        cluster-name: 'aks-aksstore'
+        admin: 'false'
+        use-kubelogin: 'true'
+    
+    - name: Run kubectl
+      run: |
+        kubectl get pods
+
     - name: Deploy using Helm
       run: |
         helm upgrade --install aks-store-demo ./charts/aks-store-demo \
