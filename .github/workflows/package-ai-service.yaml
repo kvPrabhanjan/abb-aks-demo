@@ -48,6 +48,19 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}       
       
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Linting Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8
+
+      - name: Run Flake8 Linter
+        run: flake8 src/ai-service --count --select=E9,F63,F7,F82 --show-source --statistics
+
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
