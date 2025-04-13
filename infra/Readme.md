@@ -59,6 +59,7 @@ Here's a simplified representation of the infrastructure:
 - **Azure CLI**: Installed and authenticated.
 - **Terraform**: Installed on your local machine.
 - **Azure Subscription**: With necessary permissions to create resources.
+- **Setup Azure Creds** : Add the Azure subscription credentials as a Environment variables
 
 ### Steps
 
@@ -69,7 +70,20 @@ Here's a simplified representation of the infrastructure:
    cd abb-aks-demo/infra/terraform
    ```
 
-2. **Initialize Terraform**
+2. **Setup the Creds locally**
+
+   ```bash
+    az login 
+    
+    az ad sp create-for-rbac --name 'aks-store-sp-tf' --role="Contributor" --scopes="/subscriptions/<SUBSCRIPTION-ID>"
+
+    export ARM_CLIENT_ID="<APPID_VALUE>"
+    export ARM_CLIENT_SECRET="<PASSWORD_VALUE>"
+    export ARM_SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+    export ARM_TENANT_ID="<TENANT_VALUE>"
+   ```
+
+3. **Initialize Terraform**
 
    ```bash
    terraform init
@@ -77,7 +91,7 @@ Here's a simplified representation of the infrastructure:
 
    This command initializes the Terraform working directory and downloads the necessary providers.
 
-3. **Review and Customize Variables**
+4. **Review and Customize Variables**
 
    Review the `variables.tf` file and create a `terraform.tfvars` file to set your custom values:
 
@@ -88,7 +102,7 @@ Here's a simplified representation of the infrastructure:
    ...
    ```
 
-4. **Plan the Deployment**
+5. **Plan the Deployment**
 
    ```bash
    terraform plan
@@ -96,7 +110,7 @@ Here's a simplified representation of the infrastructure:
 
    This command shows the execution plan and the resources that will be created.
 
-5. **Apply the Configuration**
+6. **Apply the Configuration**
 
    ```bash
    terraform apply
