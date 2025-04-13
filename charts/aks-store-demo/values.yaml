@@ -25,7 +25,7 @@ aiService:
   openAiDalleModelName: ""
   azureOpenAiApiVersion: "2024-02-15-preview"
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/ai-service"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/ai-service"
     tag: "latest"
 
 orderService:
@@ -36,7 +36,7 @@ orderService:
   queueName: "orders"
   queueTransport: ""
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/order-service"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/order-service"
     tag: "latest"
 
 makelineService:
@@ -53,34 +53,34 @@ makelineService:
   orderDBUsername: ""
   orderDBPassword: ""
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/makeline-service"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/makeline-service"
     tag: "latest"
 
 productService:
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/product-service"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/product-service"
     tag: "latest"
 
 storeAdmin:
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/store-admin"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/store-admin"
     tag: "latest"
   serviceType: LoadBalancer
 
 storeFront:
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/store-front"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/store-front"
     tag: "latest"
   serviceType: LoadBalancer
 
 virtualCustomer:
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/virtual-customer"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/virtual-customer"
     tag: "latest"
 
 virtualWorker:
   image:
-    repository: "ghcr.io/azure-samples/aks-store-demo/virtual-worker"
+    repository: "ghcr.io/kvprabhanjan/abb-aks-demo/virtual-worker"
     tag: "latest"
 
 podAnnotations: {}

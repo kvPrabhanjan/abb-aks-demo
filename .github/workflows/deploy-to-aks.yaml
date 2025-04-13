@@ -17,6 +17,21 @@ jobs:
       id-token: write
 
     steps:
+    - name: Gether Service Images
+      id: set-variables
+      run: |
+        echo "REPOSITORY=ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-AI-SERVICE=ai-service" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-MAKELINE-SERVICE=makeline-service" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-ORDER-SERVICE=order-service" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-PRODUCT-SERVICE=product-service" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-STORE-ADMIN-SERVICE=store-admin" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-STORE-FRONT-SERVICE=store-front" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-VIRTUAL-CUSTOMER=virtual-customer" >> "$GITHUB_OUTPUT"
+        echo "IMAGE-VIRTUAL-WORKER=virtual-worker" >> "$GITHUB_OUTPUT"
+        echo "VERSION=$(echo ${GITHUB_SHA} | cut -c1-7)" >> "$GITHUB_OUTPUT"
+        echo "CREATED=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
+
     - name: Checkout code
       uses: actions/checkout@v3
 
@@ -28,20 +43,18 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
     - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1 
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ github.token }}
+      uses: docker/login-action@v1 
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ github.token }}
 
     - name: Get AKS credentials
       run: |
-        az aks get-credentials --resource-group <YOUR_RESOURCE_GROUP> --name <YOUR_AKS_CLUSTER> --overwrite-existing
+        az aks get-credentials --resource-group rg-aks-store  --name aks-aksstore --overwrite-existing
 
     - name: Deploy using Helm
       run: |
         helm upgrade --install aks-store-demo ./charts/aks-store-demo \
           --namespace aks-store \
-          --create-namespace \
-          --set image.repository=$IMAGE_NAME \
-          --set image.tag=$IMAGE_TAG
+          --create-namespace 
