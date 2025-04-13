@@ -21,14 +21,6 @@ jobs:
       id: set-variables
       run: |
         echo "REPOSITORY=ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-AI-SERVICE=ai-service" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-MAKELINE-SERVICE=makeline-service" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-ORDER-SERVICE=order-service" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-PRODUCT-SERVICE=product-service" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-STORE-ADMIN-SERVICE=store-admin" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-STORE-FRONT-SERVICE=store-front" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-VIRTUAL-CUSTOMER=virtual-customer" >> "$GITHUB_OUTPUT"
-        echo "IMAGE-VIRTUAL-WORKER=virtual-worker" >> "$GITHUB_OUTPUT"
         echo "VERSION=$(echo ${GITHUB_SHA} | cut -c1-7)" >> "$GITHUB_OUTPUT"
         echo "CREATED=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" >> "$GITHUB_OUTPUT"
 
