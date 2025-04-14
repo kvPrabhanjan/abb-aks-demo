@@ -1,5 +1,3 @@
-
-```markdown
 # Argo CD - Installation and Configuration
 
 ## Step-by-Step Commands
