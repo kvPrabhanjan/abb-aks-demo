@@ -1,0 +1,11 @@
+mode: deployment
+
+image:
+  repository: "otel/opentelemetry-collector-contrib"
+
+config:
+  exporters:
+    azuremonitor:
+      # connectionString: "amon-aksstore"
+      instrumentation_key: 0e5b1625-57cd-4c23-8911-09b05dec4c9a
+      endpoint: https://amon-aksstore-dngr.eastus-1.metrics.ingest.monitor.azure.com/dataCollectionRules/dcr-361ac8837a164a2bab4018383831903f/streams/Microsoft-PrometheusMetrics/api/v1/write?api-version=2023-04-24
