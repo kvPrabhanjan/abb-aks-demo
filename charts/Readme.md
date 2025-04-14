@@ -95,16 +95,6 @@ helm upgrade aks-store-demo . --namespace aks-store
 kubectl get pods -n aks-store
 kubectl get svc -n aks-store
 ```
-
-If ingress is enabled:
-```bash
-kubectl get ingress -n aks-store
-```
-
-You can access the app via:
-- **Cluster IP** service (internal testing)
-- **Ingress controller** (external access)
-
 ---
 
 ### Step 6: Uninstall
@@ -114,3 +104,12 @@ helm uninstall aks-store-demo --namespace aks-store
 ```
 
 ---
+
+## Output 
+
+```bash
+:~/Downloads/aks-store-demo$ helm ls -n aks-store
+
+NAME          	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART                     	APP VERSION
+aks-store-demo	aks-store	2       	2025-04-13 17:47:51.417458867 +0000 UTC	deployed	aks-store-demo-chart-1.2.0	1.16.0   
+```
