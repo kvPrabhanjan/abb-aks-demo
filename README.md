@@ -1,4 +1,3 @@
-```markdown
 # AKS Demo App for ABB interview
 
 This repository demonstrates a complete end-to-end AI application deployment on **Azure Kubernetes Service (AKS)** using **Terraform**, **Helm**, and **GitHub Actions**.
