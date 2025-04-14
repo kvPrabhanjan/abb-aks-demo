@@ -60,11 +60,12 @@ terraform apply
 ### 2. **GitHub Actions CI/CD**
 
 #### a. Docker Image Build & Push
-- Triggered on code changes in `src/virtual-worker/`
-- Defined in `.github/workflows/package-virtual-worker.yaml`
+- Located in `infra/terraform/`
+- Defined in `.github/workflows/`
 - Builds Docker image and pushes to GitHub Container Registry (GHCR)
 
 #### b. Helm Deployment to AKS
+- Locatedin `.github/workflows/deploy-to-aks.yaml`
 - Helm chart: `charts/aks-store-demo/`
 - A separate workflow handles Helm deployment after image build.
 - Connects to AKS using Azure Service Principal with appropriate role assignments.

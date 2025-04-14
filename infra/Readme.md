@@ -43,14 +43,6 @@ Here's a simplified representation of the infrastructure:
 
 ---
 
-## Azure Services Utilized
-
-- **Azure Kubernetes Service (AKS)**: Hosts and manages the Kubernetes cluster.
-- **Azure Key Vault**: Stores secrets, keys, and certificates securely.
-- **Azure Monitor (Application Insights)**: Monitors the performance and health of applications.
-- **Azure Storage Account**: Stores the Terraform state file for infrastructure state management.
-
----
 
 ## Deployment Instructions
 

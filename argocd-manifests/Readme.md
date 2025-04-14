@@ -16,7 +16,6 @@
    ```bash
    brew install argocd
    ```
-   > Or download from: https://argo-cd.readthedocs.io/en/stable/cli_installation/
 
 4. **Access the Argo CD API Server (port-forwarding)**
    ```bash
@@ -76,3 +75,4 @@ Sync Status:        Synced to  (5162d16)
 Health Status:      Healthy
 
 ```
+
