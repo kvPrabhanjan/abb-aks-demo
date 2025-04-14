@@ -9,9 +9,8 @@ It includes:
 - Helm chart for Kubernetes packaging in `charts/aks-store-demo/`
 - GitHub Actions workflows for CI/CD in `.github/workflows/`
 - Argo CD configuration and Manifest Files in `argocd-manifests/`
-```
----
 
+---
 ```
 
 ## Project Structure
