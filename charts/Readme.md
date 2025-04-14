@@ -44,7 +44,7 @@ az aks get-credentials --resource-group <your-rg> --name <your-aks-cluster>
 
 ---
 
-### Step 2: Package or Use the Chart
+### Step 2: Clone the Repository
 
 Clone the repo:
 ```bash
@@ -52,15 +52,9 @@ git clone https://github.com/kvPrabhanjan/abb-aks-demo.git
 cd abb-aks-demo/charts/aks-store-demo
 ```
 
-You can now deploy this chart directly from the local folder, or package it:
-
-```bash
-helm package .
-```
-
 ---
 
-### ⚙️ Step 3: Customize Values (Optional)
+### Step 3: Customize Values (Optional)
 
 Edit `values.yaml` to set:
 ```yaml
